@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Josef</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLp3mX2f-PTjzVMf_C26Wa2R72AZll-OE&libraries=places&callback=initAutoComplete"
+    async defer></script>
+  </body>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
