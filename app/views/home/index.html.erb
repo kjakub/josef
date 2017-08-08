@@ -1,28 +1,26 @@
 <%= form_for @rental, url: home_search_path(), method: :get do |f| %>
 	<%= f.label :location %>
   <%= f.text_field :location %>
-  <%= f.label :price, "Price(USD)" %>
+  <%= f.label :price, "Price (USD)" %>
   <%= f.number_field :price, min: 0, step: 0.1 %>
 
   <%= f.hidden_field :lat %>
   <%= f.hidden_field :lng %>
 
-  <%= f.submit "Search" %>
+  <%= f.submit "Search", id: "submit" %>
 
 
   <p>
 	  <% if @rental.errors.any? %>
 	    <div id="error_explanation">
-	      <h2>
-	        <%= pluralize(@rental.errors.count, "error") %> prohibited
-	      </h2>
 	      <ul>
 	        <% @rental.errors.full_messages.each do |msg| %>
 	          <li><%= msg %></li>
 	        <% end %>
 	      </ul>
 	    </div>
-	  <% else %>
+	  <% elsif @rental.result %>
+	  	<p>Success</p>
 	  	<%= @rental.result %>
 	  <% end %>
 
