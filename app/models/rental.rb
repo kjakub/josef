@@ -9,7 +9,6 @@ class Rental
     begin
       # cookie needed to get result in USD
       cookie = Rails.application.secrets.bnb_cookie
-      debugger
       url = "https://www.airbnb.com/wmpw_data?page=slash_host&duration=1_month&person_capacity=1&room_type=entire_home_apt&loading=false&sw_lat=#{self.lat}&sw_lng=#{self.lng}&ne_lat=#{self.lat}&ne_lng=#{self.lng}"
       http_result =  HTTP.headers("accept" => "application/json", "accept-language" => "en-US,en;q=0.8,cs;q=0.6").cookies(:session_cookie => cookie).get(url)
       json_result = JSON.parse(http_result)
